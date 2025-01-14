@@ -1,5 +1,5 @@
-# gundi-integration-action-runner
-Template repo for integration in Gundi v2.
+# gundi-integration-onyesha
+Demonstrator connector for Gundi v2.
 
 ## Usage
 - Fork this repo
