@@ -177,8 +177,7 @@ async def action_pull_observations_from_device_batch(integration, action_config:
 async def action_pull_observations(integration, action_config: PullObservationsConfig):
     logger.info(f"Executing pull_observations action with integration {integration} and action_config {action_config}...")
     device_list = await client.get_devices()
-    logger.info(f"Extracted {len(device_list)} devices from Lotek for inbound: {integration.id}")
-
+    logger.info(f"Extracted {len(device_list)} devices from Onyesha for inbound: {integration.id}")
     subactions_triggered = 0
     for device_batch in generate_batches(device_list, settings.DEVICES_BATCH_SIZE):
         await trigger_action(
