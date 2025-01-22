@@ -68,7 +68,7 @@ async def get_token():
     return response
 
 async def get_devices(): # reutrn list of strings
-    return [OnyeshaDevice(lati = '89222', strSpecialID = '300434066112120', dtCreated = datetime.datetime(2023, 1, 3, 16, 5, 56, 120000), strSatellite = 'Iridium'),
+    return [OnyeshaDevice(nDeviceID = '89222', strSpecialID = '300434066112120', dtCreated = datetime.datetime(2023, 1, 3, 16, 5, 56, 120000), strSatellite = 'Iridium'),
             OnyeshaDevice(nDeviceID = '150167', strSpecialID = '300434063388110', dtCreated = datetime.datetime(2022, 2, 23, 11, 49, 37, 350000), strSatellite = 'Iridium'),
             OnyeshaDevice(nDeviceID = '150181', strSpecialID = '300434063383130', dtCreated = datetime.datetime(2023, 1, 3, 16, 15, 31, 783000), strSatellite = 'Iridium'),
             OnyeshaDevice(nDeviceID = '150188', strSpecialID = '300434063387100', dtCreated = datetime.datetime(2023, 1, 3, 16, 15, 31, 847000), strSatellite = 'Iridium'),
