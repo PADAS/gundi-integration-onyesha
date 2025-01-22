@@ -140,21 +140,9 @@ async def action_pull_observations_from_device_batch(integration, action_config:
             logger.info(
                 f"Observations pulled successfully for integration ID: {integration.id}, Device: {device.nDeviceID}"
             )
-            for i, batch in enumerate(generate_batches(cdip_positions, settings.OBSERVATIONS_BATCH_SIZE)):
-                try:
-                    logger.info(
-                        f'Sending observations batch #{i}: {len(batch)} observations. Device: {device.nDeviceID}')
-                    await gundi_tools.send_observations_to_gundi(observations=batch, integration_id=integration.id)
-                except httpx.HTTPError as e:
-                    msg = f'Sensors API returned error for integration_id: {str(integration.id)}. Exception: {e}'
-                    logger.exception(msg, extra={
-                        'needs_attention': True,
-                        'integration_id': integration.id,
-                        'action_id': "pull_observations"
-                    })
-                    raise e
-                else:
-                    observations_extracted += len(cdip_positions)
+            for batch in enumerate(generate_batches(cdip_positions, settings.OBSERVATIONS_BATCH_SIZE)):
+                await gundi_tools.send_observations_to_gundi(observations=batch, integration_id=integration.id)
+                observations_extracted += len(cdip_positions)
         else:
             message = f"No positions fetched for device {device.nDeviceID} integration ID: {integration.id}."
             logger.info(message)
