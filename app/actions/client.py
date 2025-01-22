@@ -12,6 +12,13 @@ logger = logging.getLogger(__name__)
 state_manager = IntegrationStateManager()
 
 
+class OnyeshaDevice(BaseModel):
+    nDeviceID: str
+    strSpecialID: str
+    dtCreated: datetime
+    strSatellite: str
+
+
 class OnyeshaPosition(BaseModel):
     ChannelStatus: str
     UploadTimeStamp: datetime
@@ -208,4 +215,27 @@ async def get_devices(): # reutrn list of strings
 
 
 async def get_positions():
-    return []
+    return [OnyeshaDevice(nDeviceID = '89222', strSpecialID = '300434066112120', dtCreated = datetime.datetime(2023, 1, 3, 16, 5, 56, 120000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150167', strSpecialID = '300434063388110', dtCreated = datetime.datetime(2022, 2, 23, 11, 49, 37, 350000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150181', strSpecialID = '300434063383130', dtCreated = datetime.datetime(2023, 1, 3, 16, 15, 31, 783000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150188', strSpecialID = '300434063387100', dtCreated = datetime.datetime(2023, 1, 3, 16, 15, 31, 847000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150705', strSpecialID = '300434066467530', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 307000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150706', strSpecialID = '300434066464540', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 323000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150707', strSpecialID = '300434066461470', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 323000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150708', strSpecialID = '300434066463540', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 340000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150709', strSpecialID = '300434066465530', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 340000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150710', strSpecialID = '300434066465520', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 353000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150711', strSpecialID = '300434066468520', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 370000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150712', strSpecialID = '300434066465560', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 370000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150713', strSpecialID = '300434066462530', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 387000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '150714', strSpecialID = '300434066461530', dtCreated = datetime.datetime(2022, 6, 16, 13, 41, 21, 387000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '152770', strSpecialID = '300434067188300', dtCreated = datetime.datetime(2024, 9, 24, 14, 39, 25, 223000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '152771', strSpecialID = '300434067187300', dtCreated = datetime.datetime(2024, 9, 24, 14, 39, 25, 423000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '152772', strSpecialID = '300434067180330', dtCreated = datetime.datetime(2024, 9, 24, 14, 39, 25, 457000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '155886', strSpecialID = '300434068741530', dtCreated = datetime.datetime(2024, 3, 7, 15, 2, 58, 413000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '155887', strSpecialID = '300434068747510', dtCreated = datetime.datetime(2024, 3, 7, 15, 2, 58, 443000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '155888', strSpecialID = '300434068740530', dtCreated = datetime.datetime(2024, 3, 7, 15, 2, 58, 477000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '155889', strSpecialID = '300434068744540', dtCreated = datetime.datetime(2024, 3, 7, 15, 2, 58, 507000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '155890', strSpecialID = '300434068749510', dtCreated = datetime.datetime(2024, 3, 7, 15, 2, 58, 537000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '156639', strSpecialID = '301434060726110', dtCreated = datetime.datetime(2024, 11, 6, 9, 1, 51, 210000), strSatellite = 'Iridium'),
+            OnyeshaDevice(nDeviceID = '156950', strSpecialID = '301434060552790', dtCreated = datetime.datetime(2024, 11, 6, 9, 1, 51, 223000), strSatellite = 'Iridium')]
