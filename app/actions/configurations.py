@@ -1,3 +1,4 @@
+from app.actions.client import OnyeshaDevice
 from .core import InternalActionConfiguration, PullActionConfiguration, AuthActionConfiguration
 import pydantic
 
@@ -12,4 +13,4 @@ class PullObservationsConfig(PullActionConfiguration):
     endpoint: str = "mobile/vehicles"
 
 class PullObservationsFromDeviceBatch(InternalActionConfiguration):
-    devices: list[str]
+    devices: list[OnyeshaDevice]
