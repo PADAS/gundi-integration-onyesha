@@ -5,7 +5,7 @@ import pydantic
 class AuthenticateConfig(AuthActionConfiguration):
     username: str
     password: pydantic.SecretStr = pydantic.Field(..., title = "Password", 
-                                description = "Password for Bluetrax account",
+                                description = "Password for Onyesha account",
                                 format="password")
 
 
