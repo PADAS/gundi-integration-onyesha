@@ -11,7 +11,7 @@ import app.services.gundi as gundi_tools
 from app.actions import client
 from app.actions.configurations import AuthenticateConfig, PullObservationsConfig, PullObservationsFromDeviceBatch
 from app.services.activity_logger import activity_logger, log_action_activity
-
+from .state import IntegrationState
 from app.services.state import IntegrationStateManager
 from gundi_core.schemas.v2.gundi import LogLevel
 
@@ -122,9 +122,9 @@ async def action_pull_observations_from_device_batch(integration, action_config:
             saved_state = await state_manager.get_state(
                 integration_id=str(integration.id), action_id="pull_observations", source_id=str(device.nDeviceID)
             )
-            state = client.IntegrationState.parse_obj({"last_run": saved_state})
+            state = IntegrationState.parse_obj({"last_run": saved_state})
         except pydantic.ValidationError as e:
-            state = client.IntegrationState()
+            state = IntegrationState()
         lower_date = max(present_time - timedelta(days=7), state.last_run)
         upper_date = min(present_time, lower_date + timedelta(days=7))
         while lower_date < present_time:
