@@ -1,6 +1,5 @@
 import json
 import stamina
-import httpx
 import redis.asyncio as redis
 from app import settings
 
@@ -40,3 +39,4 @@ class IntegrationStateManager:
 
     def __repr__(self):
         return self.__str__()
+
