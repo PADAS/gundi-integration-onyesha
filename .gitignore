@@ -135,5 +135,4 @@ dmypy.json
 .idea
 .vscode
 
-# local env
-docker/.env.local
+sample-docs
